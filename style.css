@@ -1,8 +1,21 @@
 :root {
   --primary-color: #4CAF50;
   --bg-color: #f4f7f6;
+  --container-bg: #ffffff;
   --text-color: #333;
+  --h1-color: #2c3e50;
   --ball-size: 50px;
+  --shadow-color: rgba(0,0,0,0.1);
+  --placeholder-color: #95a5a6;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --container-bg: #2d2d2d;
+  --text-color: #e0e0e0;
+  --h1-color: #ffffff;
+  --shadow-color: rgba(0,0,0,0.4);
+  --placeholder-color: #7f8c8d;
 }
 
 body {
@@ -14,21 +27,45 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
-  background: white;
+  background: var(--container-bg);
   padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px var(--shadow-color);
   text-align: center;
   max-width: 450px;
   width: 90%;
+  position: relative;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+#theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: none;
+  transition: transform 0.2s;
+}
+
+#theme-btn:hover {
+  transform: scale(1.1);
+  background: none;
 }
 
 h1 {
   margin-top: 0;
-  color: #2c3e50;
+  color: var(--h1-color);
   font-size: 1.8rem;
 }
 
@@ -42,7 +79,7 @@ h1 {
 }
 
 .placeholder {
-  color: #95a5a6;
+  color: var(--placeholder-color);
   font-style: italic;
 }
 
@@ -67,13 +104,13 @@ h1 {
 }
 
 /* 로또 공 색상 규정 */
-.color-1-10 { background-color: #fbc02d; } /* 노랑 */
-.color-11-20 { background-color: #1976d2; } /* 파랑 */
-.color-21-30 { background-color: #e53935; } /* 빨강 */
-.color-31-40 { background-color: #757575; } /* 회색 */
-.color-41-45 { background-color: #43a047; } /* 초록 */
+.color-1-10 { background-color: #fbc02d; }
+.color-11-20 { background-color: #1976d2; }
+.color-21-30 { background-color: #e53935; }
+.color-31-40 { background-color: #757575; }
+.color-41-45 { background-color: #43a047; }
 
-button {
+#generate-btn {
   background-color: var(--primary-color);
   color: white;
   border: none;
@@ -86,12 +123,12 @@ button {
   box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
 }
 
-button:hover {
+#generate-btn:hover {
   background-color: #45a049;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
 }
 
-button:active {
+#generate-btn:active {
   transform: translateY(0);
 }

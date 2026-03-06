@@ -1,3 +1,28 @@
+// 테마 토글 로직
+const themeBtn = document.getElementById('theme-btn');
+const body = document.body;
+
+// 초기 테마 설정 (로컬 스토리지 확인)
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+  body.setAttribute('data-theme', 'dark');
+  themeBtn.textContent = '☀️';
+}
+
+themeBtn.addEventListener('click', () => {
+  const isDark = body.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    body.removeAttribute('data-theme');
+    themeBtn.textContent = '🌙';
+    localStorage.setItem('theme', 'light');
+  } else {
+    body.setAttribute('data-theme', 'dark');
+    themeBtn.textContent = '☀️';
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+// 로또 번호 생성 로직
 document.getElementById('generate-btn').addEventListener('click', function() {
   const container = document.getElementById('lotto-container');
   container.innerHTML = ''; // 기존 번호 삭제
