@@ -49,10 +49,50 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
 }
 
 #theme-btn {
   background: none; border: none; font-size: 1.5rem; cursor: pointer;
+}
+
+/* Solution List */
+.solution-list {
+  padding-left: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.solution-list li {
+  margin-bottom: 1rem;
+}
+
+/* FAQ */
+.faq-item {
+  margin-bottom: 2rem;
+}
+
+.faq-item h4 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
 }
 
 /* Hero Section */
